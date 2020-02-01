@@ -9,31 +9,36 @@ class Directory extends React.Component {
             sections: [
                     {
                       title: 'CZAPKI',
+                      subtitle: 'KUP TERAZ',
                       imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
                       id: 1,
                       linkUrl: 'shop/hats'
                     },
                     {
                       title: 'KURTKI',
+                      subtitle: 'KUP TERAZ',
                       imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
                       id: 2,
                       linkUrl: 'shop/jackets'
                     },
                     {
                       title: 'BUTY',
+                      subtitle: 'KUP TERAZ',
                       imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
                       id: 3,
                       linkUrl: 'shop/sneakers'
                     },
                     {
-                      title: 'KOBIETY',
+                      title: 'DLA NIEJ',
+                      subtitle: 'ZOBACZ KOLEKCJĘ',
                       imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
                       size: 'large',
                       id: 4,
                       linkUrl: 'shop/womens'
                     },
                     {
-                      title: 'MEŻCZYZNI',
+                      title: 'DLA NIEGO',
+                      subtitle: 'ZOBACZ KOLEKCJĘ',
                       imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
                       size: 'large',
                       id: 5,
@@ -44,13 +49,11 @@ class Directory extends React.Component {
     }
     render(){
         return(
-            <div className='directory-menu'>
-                {
-                    this.state.sections.map(({title , imageUrl , id})=> (
-                        <MenuItem key={id} title={title} imageUrl={imageUrl}/>
-                    ))
-                }
-            </div>
+          <div className='directory-menu'>
+          {this.state.sections.map(({ id, ...otherSectionProps }) => (
+            <MenuItem key={id} {...otherSectionProps} />
+          ))}
+        </div>
         )
     }
 }
