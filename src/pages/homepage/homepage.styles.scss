@@ -6,7 +6,7 @@
 }
 
 .directory-menu {
-  width: 100%;
+  width: 180vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -14,7 +14,7 @@
 
 .menu-item {
   min-width: 30%;
-  height: 240px;
+  height: 340px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
