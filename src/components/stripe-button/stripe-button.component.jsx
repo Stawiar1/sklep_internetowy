@@ -14,7 +14,7 @@ const StripeCheckoutButton = ({ price }) => {
             name="BARTŁOMIEJ STAWIARSKI"
             billingAddress
             shippingAddress
-            image='https://svgshare.com/i/HoH.svg'
+            image='https://svgshare.com/i/Hrr.svg'
             description={`Do zapłaty: ${price}PLN`}
             amount={priceForStripe}
             panelLabel='Zapłać Teraz!'
