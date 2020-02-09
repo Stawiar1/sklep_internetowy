@@ -26,8 +26,9 @@ class SignIn extends React.Component {
             
             this.setState({email: '' , password: ''})
         }catch (error){
-            console.log(error)
+            alert('Nie ma takiego użtkownika lub wprowadzone dane są niepoprawne!')
         }
+        alert('Zalogowano Poprawnie!')
 
 
     }

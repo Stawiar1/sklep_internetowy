@@ -3,13 +3,14 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: 'AIzaSyCdHT-AYHXjF7wOrfAchX4PIm3cSj5tn14',
-  authDomain: 'crwn-db.firebaseapp.com',
-  databaseURL: 'https://crwn-db.firebaseio.com',
-  projectId: 'crwn-db',
-  storageBucket: 'crwn-db.appspot.com',
-  messagingSenderId: '850995411664',
-  appId: '1:850995411664:web:7ddc01d597846f65'
+    apiKey: "AIzaSyBVWr5obHQdJkA8Hd3vf1rycruyKhAF5TU",
+    authDomain: "sklep-db.firebaseapp.com",
+    databaseURL: "https://sklep-db.firebaseio.com",
+    projectId: "sklep-db",
+    storageBucket: "sklep-db.appspot.com",
+    messagingSenderId: "511264996540",
+    appId: "1:511264996540:web:60c1b200d6c4a18391e4b9",
+    measurementId: "G-VM8569JM1X"
 };
 
 firebase.initializeApp(config);
@@ -32,47 +33,11 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData
       });
     } catch (error) {
-      console.log('Błąd przy tworzeniu użytkownika!', error.message);
+      console.log('error creating user', error.message);
     }
   }
 
   return userRef;
-};
-
-//Funkcja pobierająca elementy z bazy danych (firebase)
-export const addCollectionAndDocuments = async (
-  collectionKey,
-  objectsToAdd
-) => {
-  const collectionRef = firestore.collection(collectionKey);
-
-  const batch = firestore.batch();
-  objectsToAdd.forEach(obj => {
-    const newDocRef = collectionRef.doc();
-    batch.set(newDocRef, obj);
-  });
-
-  return await batch.commit();
-};
-
-
-//funkcja konwertująca elementy na obiekty (zwraca tablicę obiektów)
-export const convertCollectionsSnapshotToMap = collections => {
-  const transformedCollection = collections.docs.map(doc => {
-    const { title, items } = doc.data();
-
-    return {
-      routeName: encodeURI(title.toLowerCase()),
-      id: doc.id,
-      title,
-      items
-    };
-  });
-
-  return transformedCollection.reduce((accumulator, collection) => {
-    accumulator[collection.title.toLowerCase()] = collection;
-    return accumulator;
-  }, {});
 };
 
 export const auth = firebase.auth();

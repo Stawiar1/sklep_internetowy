@@ -47,6 +47,7 @@ class SignUp extends React.Component {
     } catch (error) {
       console.error(error);
     }
+    alert('Poprawnie utworzono konto!')
   };
 
   handleChange = event => {
